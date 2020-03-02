@@ -1,4 +1,4 @@
-# Copyright (c) 2018, Jason DeGraw
+# Copyright (c) 2018-2020, Jason DeGraw
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -116,8 +116,15 @@ if __name__ == '__main__':
                         help='specify project name')
     parser.add_argument('-v', '--verbose', dest='verbose', action='store_true',
                         help='operate verbosely')
+    parser.add_argument('--list-standards', dest='list_and_exit', action='store_true',
+                        help='list the allegedly supported standards and exit')
 
     args = parser.parse_args()
+
+    if args.list_and_exit:
+        for k,v in toplevel_cmakelists_txt.items():
+            print(k)
+        exit()
 
     if not args.standard in toplevel_cmakelists_txt:
         args.standard = 'vanilla'
