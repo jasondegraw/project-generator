@@ -81,7 +81,7 @@ elseif(MSVC)
   if(${CMAKE_C_COMPILER_VERSION} VERSION_LESS "19.10.25017.0")
     message(FATAL_ERROR "Visual Studio earlier than VS2019 is not supported")
   endif()
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++latest")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
 elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   # Need to check for clang version
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -stdlib=libc++")
